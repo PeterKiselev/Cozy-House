@@ -1,0 +1,26 @@
+.figure {
+    &__bank-card { 
+        margin-top: $gap-30;
+        text-align: center;
+        @media screen and (min-width: 768px) { text-align: left; }
+    }
+    &__bank-name { font-family: $title-ff; }
+    &__btn {
+        margin-top: 15px;
+        padding: .5em .6em;
+        border-radius: 10px;
+
+        &-text {
+            font-family: $contacts-ff;
+            font-size: 2rem;
+        }
+    }
+    &__blockquote {
+        margin-top: $gap-30;
+        font-style: italic;
+        opacity: 0.6;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        letter-spacing: normal;
+    }
+}

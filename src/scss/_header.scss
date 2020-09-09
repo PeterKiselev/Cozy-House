@@ -1,0 +1,125 @@
+.header {
+    @include posA(0, 0, 0);
+    z-index: 10;
+    padding-top: $gap-60;
+}
+
+.nav { @include flex; }
+
+.menu {
+    @include posA(0, 0, 0, 0);
+    z-index: 5;
+    height: 100vh;
+    @include flex($jc: center);
+    flex-direction: column;
+    background-color: $medium-black;
+    opacity: 0;
+    transform-origin: calc(100% - 15px) 15px;
+    transform: translate(0, 0) scale(.1);
+    @include tr(.5s);
+    .menu-opened & {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+
+    @media screen and (min-width: 992px) {
+        position: relative;
+        background-color: transparent;
+        flex-direction: row;
+        height: auto;
+        justify-content: flex-start;
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+        margin-right: -20px;
+    }
+
+    &__item {
+        margin: 0 20px;
+
+        .menu-opened & { margin: 15px; }
+    }
+
+    &__link {
+        color: $menu-color;
+        padding: .5em 0;
+        position: relative;
+        letter-spacing: 0;
+
+        &:before {
+            content: '';
+            @include posA($bottom: 0, $left: 0);
+            display: inline-block;
+            width: 100%;
+            height: $border-width * 3;
+            background-color: transparent;
+            border-radius: 2px;
+            @include tr;
+        }
+
+        @include hover {
+            color: $secondary-color;
+            &:before { background-color: $primary-color; }
+        }
+
+        .menu-opened & {
+            padding: 1em;
+            font-size: 1.5em;
+        }
+    }
+}
+
+.toggler {
+    position: relative;
+    z-index: 10;
+    @include flex($jc: center);
+    width: 47px;
+    height: 47px;
+
+    @include hover {
+        span, span:before, span:after { background-color: $primary-color; }
+    }
+
+    @media screen and (min-width: 992px) { display: none; }
+
+    span, span:before, span:after {
+        width: 100%;
+        height: $border-width * 3;
+        background-color: $secondary-color;
+    }
+
+    span {
+        @include tr;
+        position: relative;
+
+        &:before, &:after {
+            content: '';
+            @include posA;
+        }
+
+        &:before {
+            top: -15px;
+            transition: transform .3s ease-in, top .3s linear .3s;
+        }
+
+        &:after {
+            top: 15px;
+            transition: transform .3s ease-in, top .3s linear .3s;
+        }
+
+        .menu-opened & { background-color: transparent; }
+
+        .menu-opened &:before {
+            transform: rotate(45deg);
+            top: 0;
+            transition: top .3s linear, transform .3s ease-in .3s;
+        }
+
+        .menu-opened &:after {
+            transform: rotate(-45deg);
+            top: 0;
+            transition: top .3s linear, transform .3s ease-in .3s;
+        }
+    }
+}
+  
+

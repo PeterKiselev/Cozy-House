@@ -1,0 +1,67 @@
+.section {
+    &--footer { padding-bottom: 0; }
+}
+
+.footer {
+    &__content {
+        @include flex($jc: center, $ali: stretch);
+        flex-wrap: wrap;
+        margin: 0 (-1 * $gap-30);
+    }
+    &__col {
+        width: 100%;
+        max-width: 300px;
+        margin: 15px $gap-30 0;
+
+        &--img { align-self: flex-end; }
+    }
+    &__picture {
+        display: block;
+        position: relative;
+        padding-top: 100%;
+        overflow: hidden;
+    }
+    &__img {
+        @include posA(0,0,0,0);
+        min-width: 100%;
+        min-height: 100%;
+    }
+    &__title {
+        overflow: hidden;
+        max-height: 91px;
+        @include clamp($clamp: 2);
+    }
+}
+
+.contacts {
+    padding-bottom: 70px;
+    &__item {
+        display: block;
+        margin-top: $gap-30;
+    }
+    &__link {
+        position: relative;
+        @include flex($jc: flex-start);
+        font-family: $contacts-ff;
+        font-size: 2rem;
+        min-height: 48px;
+        padding-left: 50px;
+        color: $primary-color;
+        
+        @include tr;
+        @include hover { opacity: .7; }
+        span {
+            display: inline-block;
+            line-height: 1.2;
+        }
+    }
+    svg {width: 40px;}
+    &__icon {
+        @include posA($top: 50%, $left: 0);
+        @include transform(0, -50%);
+        fill: $primary-color;
+        @include tr;
+        width: 40px;
+        height: 40px;
+    }
+}
