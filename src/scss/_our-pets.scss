@@ -51,6 +51,7 @@
         text-transform: capitalize;
         background-color: $thin-gray;
         width: 100%;
+        padding: 10px;
         max-width: 195px;
         @include hover { background-color: $primary-color; }
     }

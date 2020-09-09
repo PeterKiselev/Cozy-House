@@ -7,6 +7,18 @@
 }
 
 .cover {
+    min-height: 100vh;
+    padding-top: 120px;
+    position: relative;
+    @include flex($jc: flex-start);
+
+    &:before {
+        content: '';
+        @include posA(0,0,0,0);
+        background-color: rgba($medium-black, .3);
+        z-index: 2;
+        @media screen and (min-width: 992px) { background-color: transparent; }
+    }
     &__img-block {
         width: 100%;
         @include posA(110px, 0, null, 0);
@@ -40,11 +52,6 @@
 }
 
 .cover {
-    min-height: 100vh;
-    padding-top: 122px;
-    position: relative;
-    @include flex($jc: flex-start);
-
     &__content {
         position: relative;
         z-index: 4;
@@ -58,11 +65,12 @@
         @include clamp($clamp: 3);
     }
     &__text {
-        color: $medium-gray;
+        color: $secondary-color;
         margin-top: $gap-30;
         overflow: hidden;
         max-height: 240px;
         @include clamp($clamp: 10);
+        @media screen and (min-width: 992px) { color: $medium-gray; }
     }
     &__btn { margin-top: $gap-30; }
 }
