@@ -46,7 +46,8 @@
         @include clamp($clamp: 1);
     }
     &__btn {
-        @include posA($bottom: 35px, $left: 40px);
+        @include posA($bottom: 35px, $left: 50%);
+        @include transform(-50%, 0);
         text-transform: capitalize;
         background-color: $thin-gray;
         width: 100%;
